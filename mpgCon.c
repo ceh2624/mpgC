@@ -7,14 +7,18 @@ float m2k(void);
 
 int main(void)
 {
-	char choice;
+	char choice = 'x';
 	float answer;
-	printf("\nMENU");
-	printf("\nA\tMiles per Gallon to Litres per 100km");
-	printf("\nB\tLitres per 100km to Miles per gallon");
-	printf("\nChoose A or B--> ");
-	choice = getchar();
-	choice = toupper(choice);
+	while ((choice != 'A') && (choice != 'B'))
+	{
+		printf("\nMENU");
+		printf("\nA\tMiles per Gallon to Litres per 100km");
+		printf("\nB\tLitres per 100km to Miles per gallon");
+		printf("\nChoose A or B--> ");
+		choice = getchar();
+		choice = toupper(choice);
+		if ((choice != 'A') && (choice != 'B')) printf("\n\nyour pick is invalid, Please pick A or B\n");
+	}
 	switch(choice)
 	{/*make choice*/
 		case 'A':
@@ -31,10 +35,10 @@ int main(void)
 			answer = k2m();
 			printf("The answer is %.2f Miles per gallon.\n", answer);
 			break;
-		default:
+		/*default:
 			printf("\nYou did not choose A or B, dum dum!\nWhy did you choose ");
-			putchar(choice);/* A wee insult*/
-			printf("?\n");     
+			putchar(choice);
+			printf("?\n"); */    
 	}
 }
 /*do all the math in these two functions*/
